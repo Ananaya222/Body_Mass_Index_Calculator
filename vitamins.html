@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vitamins Information</title>
+    <style>
+         /* Background Image with Blur Effect */
+         body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://thumbs.dreamstime.com/b/ingredients-healthy-foods-selection-concept-food-set-up-wooden-background-168484719.jpg') no-repeat center center/cover;
+            filter: blur(5px);
+            z-index: -1;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+        }
+        header {
+            background: #ff9800;
+            color: white;
+            padding: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+        }
+        header:hover {
+            background: #e68900; /* Darker shade of orange */
+            color: yellow; /* Change text color */
+            cursor: pointer; /* Optional: change cursor */
+        }
+        .button-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            justify-content: center;
+            margin: 20px auto;
+            max-width: 600px;
+        }
+        .btn {
+            background: #ff5722;
+            color: white;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: transform 0.2s, background 0.3s;
+        }
+        .btn:hover {
+            background: #e64a19;
+            transform: scale(1.1);
+        }
+        .vitamin-info {
+            display: none;
+            background: white;
+            padding: 20px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 50%;
+            text-align: center;
+        }
+        .btn:hover {
+            background: #e64a19;
+            transform: scale(1.1);
+        }
+        .vitamin-info img:hover {
+            transform: scale(1.1);
+        }
+
+        .bmi-section h2 {
+            color: #ff5722;
+            font-size: 22px;
+        }
+        .bmi-section label {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+        .bmi-section input {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 2px solid #ff9800;
+            font-size: 16px;
+            width: 80%;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: border-color 0.3s ease;
+        }
+        .bmi-section input:focus {
+            border-color: #ff5722;
+            outline: none;
+        }
+    .btn:hover {
+        background: #e64a19;
+    }
+    .result {
+        margin-top: 20px;
+        font-size: 18px;
+        font-weight: bold;
+        color: #2c3e50;
+    }
+
+        .intro-container {
+            background: white;
+            padding: 20px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 60%;
+            text-align: center;
+        }
+        .btn:hover {
+            background: #e64a19;
+            transform: scale(1.1);
+        }
+        /* Image Styling */
+        .vitamin-info img {
+            width: 300px;
+            height: 200px;
+            display: block;
+            margin: 10px auto;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+        .vitamin-info img:hover {
+            transform: scale(1.1);
+        }
+        /* Intro Box */
+        .intro-container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            width: 60%;
+            text-align: center;
+            color: black;
+            transition: transform 0.3s;
+        }
+        .faq-container h2:hover {
+            transform: scale(1.1);
+            color: #ff5722;
+        }
+        .recommendation {
+            color: #4CAF50; /* Green text */
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .recommendation:hover {
+            color: #FF5722; /* Changes to orange on hover */
+        }
+        
+
+        .intro-container:hover {
+            transform: scale(1.05);
+        }
+        .bmi-section {
+            background: white;
+            padding: 20px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 50%;
+            text-align: center;
+        }
+        .bmi-section:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .vitamin-info img {
+            width: 300px;
+            height: 200px;
+            display: block;
+            margin: 10px auto;
+        }
+        .vitamin-info, .faq-section {
+            display: none;
+            background: white;
+            padding: 20px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 50%;
+            text-align: left;
+        }
+        .faq-section {
+            display: block;
+        }
+        /*.faq-container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            width: 70%;
+            margin-left: auto;
+            margin-right: auto;
+        }*/
+        .faq-container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            width: 70%;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+        .faq-item:hover {
+            transform: scale(1.05);
+        }
+        .faq-container h2 {
+            color: #008080;
+            text-align: center;
+        }
+        .faq-container:hover {
+            transform: scale(1.05);
+        }
+        .faq-item {
+            margin-bottom: 10px;
+            transition: transform 0.2s;
+        }
+        .faq-item:hover {
+            transform: scale(1.05);
+        }
+        .faq-question {
+            font-weight: bold;
+            cursor: pointer;
+            color: #ff5722;
+        }
+        .faq-answer {
+            display: none;
+            margin-top: 5px;
+        }
+    </style>
+    <script>
+        function showInfo(id) {
+            let infos = document.getElementsByClassName('vitamin-info');
+            for (let i = 0; i < infos.length; i++) {
+                infos[i].style.display = 'none';
+            }
+            document.getElementById(id).style.display = 'block';
+        }
+    
+        function getVitaminRecommendation() {
+            let bmi = parseFloat(document.getElementById('bmiInput').value);
+            let recommendation = "";
+    
+            if (bmi < 16) {
+                recommendation = `
+                    Focus on <b>Vitamin D & Calcium</b> to strengthen bones.<br>
+                    Increase <b>Vitamin B12 & Iron</b> for energy and preventing anemia.<br>
+                    Include <b>Omega-3 & healthy fats</b> for brain function and weight gain.
+                `;
+            } else if (bmi >= 16 && bmi < 18.5) {
+                recommendation = `
+                    Ensure <b>Vitamin D & Calcium</b> intake for bone strength.<br>
+                    Consume <b>Vitamin B Complex</b> to support metabolism and energy.<br>
+                    Include <b>Protein & healthy carbs</b> for balanced weight gain.
+                `;
+            } else if (bmi >= 18.5 && bmi < 24.9) {
+                recommendation = `
+                    Maintain <b>Vitamin C</b> intake for immunity.<br>
+                    Consume <b>Vitamin A</b> to support eye health.<br>
+                    Include <b>Vitamin E & antioxidants</b> for skin and cell protection.
+                `;
+            } else if (bmi >= 25 && bmi < 29.9) {
+                recommendation = `
+                    Increase <b>Vitamin D</b> for metabolism support.<br>
+                    Consume <b>Omega-3</b> for heart health.<br>
+                    Add <b>Magnesium & fiber</b> for digestion and blood sugar control.
+                `;
+            } else if (bmi >= 30 && bmi < 34.9) {
+                recommendation = `
+                    Ensure adequate <b>Vitamin D & Magnesium</b> for metabolism and insulin levels.<br>
+                    Increase <b>Fiber intake</b> for better digestion and weight management.<br>
+                    Consume <b>Vitamin B6</b> for energy metabolism.
+                `;
+            } else if (bmi >= 35 && bmi < 39.9) {
+                recommendation = `
+                    Prioritize <b>Vitamin D & K</b> for bone and heart health.<br>
+                    Add <b>Antioxidants (Vitamin C & E)</b> to reduce inflammation.<br>
+                    Include <b>Fiber & probiotics</b> for gut health.
+                `;
+            } else {
+                recommendation = `
+                    Focus on <b>Vitamin D & Magnesium</b> to support metabolism.<br>
+                    Increase <b>Fiber & lean protein</b> for better weight control.<br>
+                    Ensure <b>Vitamin B12</b> intake for energy and nerve function.
+                `;
+            }
+    
+            document.getElementById('bmiResult').innerHTML = `<p>${recommendation}</p>`;
+
+
+        }
+    </script>
+    <script>
+        function showInfo(id) {
+            let infos = document.getElementsByClassName('vitamin-info');
+            for (let i = 0; i < infos.length; i++) {
+                infos[i].style.display = 'none';
+            }
+            document.getElementById(id).style.display = 'block';
+        }
+        function toggleFAQ(id) {
+            let answer = document.getElementById(id);
+            answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+    
+</head>
+<body>
+    <header>
+        Vitamins & Their Benefits
+    </header>
+    <div class="intro-container">
+        <h2>What Are Vitamins?</h2>
+        <p>Vitamins are essential nutrients required for various bodily functions, including metabolism, immunity, and cell repair. They help maintain overall health and well-being.</p>
+    </div>
+    <div class="container">
+        <div class="button-container">
+            <button class="btn" onclick="showInfo('vitaminA')">Vitamin A</button>
+            <button class="btn" onclick="showInfo('vitaminB')">Vitamin B</button>
+            <button class="btn" onclick="showInfo('vitaminC')">Vitamin C</button>
+            <button class="btn" onclick="showInfo('vitaminD')">Vitamin D</button>
+            <button class="btn" onclick="showInfo('vitaminE')">Vitamin E</button>
+            <button class="btn" onclick="showInfo('vitaminK')">Vitamin K</button>
+        </div>
+        <div id="vitaminA" class="vitamin-info">
+            <h2>Vitamin A</h2>
+            <img src="https://cdn.cdnparenting.com/articles/2018/06/558453145-H-1024x700.webp" alt="Vitamin A">
+            <p><strong>Benefits:</strong> Supports vision, immune function, and skin health.</p>
+            <p><strong>Sources:</strong> Carrots, sweet potatoes, spinach,fish,meat and dairy products.</p>
+        </div>
+        <div id="vitaminB" class="vitamin-info">
+            <h2>Vitamin B</h2>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRf-jc1_ZRQOpNw1XTOvmQTXmc4eo5hMKjIQ&s" alt="Vitamin B">
+            <p><strong>Benefits:</strong> Helps in energy production, brain function, and red blood cell formation.</p>
+            <p><strong>Sources:</strong> Whole grains, meat, eggs, dairy, and leafy greens.</p>
+        </div>
+        <div id="vitaminC" class="vitamin-info">
+            <h2>Vitamin C</h2>
+            <img src="https://i0.wp.com/medicalnutritionaltherapy.com/wp-content/uploads/2021/12/vit-C-1-2.jpg?resize=1024%2C683&ssl=1" alt="Vitamin C">
+            <p><strong>Benefits:</strong> Boosts immunity, promotes healthy skin, and aids iron absorption.</p>
+            <p><strong>Sources:</strong> Citrus fruits, strawberries, bell peppers, and broccoli.</p>
+        </div>
+        <div id="vitaminD" class="vitamin-info">
+            <h2>Vitamin D</h2>
+            <img src="https://myhealth-redcliffelabs.redcliffelabs.com/media/blogcard-images/None/997fb1f3-11fe-402c-92cc-25582a5f8a41.webp" alt="Vitamin D">
+            <p><strong>Benefits:</strong> Supports bone health, immune function, and mood regulation.</p>
+            <p><strong>Sources:</strong> Sunlight, fatty fish, fortified dairy, and egg yolks.</p>
+        </div>
+        <div id="vitaminE" class="vitamin-info">
+            <h2>Vitamin E</h2>
+            <img src="https://yourhappylife.com/cdn/shop/articles/Everything_About_Sources_of_Vitamin_E_in_Indian_Food.png?v=1707110490&width=901"alt="Vitamin E">
+            <p><strong>Benefits:</strong> Acts as an antioxidant, supports skin and eye health.</p>
+            <p><strong>Sources:</strong> Nuts, seeds, spinach, and vegetable oils.</p>
+        </div>
+        <div id="vitaminK" class="vitamin-info">
+            <h2>Vitamin K</h2>
+            <img src="https://nutritionsource.hsph.harvard.edu/wp-content/uploads/2024/11/AdobeStock_266456519.jpeg" alt="Vitamin K">
+            <p><strong>Benefits:</strong> Essential for blood clotting and bone health.</p>
+            <p><strong>Sources:</strong> Leafy greens, broccoli, and dairy products.</p>
+        </div>
+    </div>
+        <div class="bmi-section">
+            <h2>Vitamin Recommendation Based on BMI</h2>
+            <label for="bmiInput">Enter Your BMI:</label>
+            <input type="number" id="bmiInput" step="0.1">
+            <button class="btn" onclick="getVitaminRecommendation()">Get Recommendation</button>
+            <p class="result" id="bmiResult"></p>
+    </div>
+    <div class="faq-container">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-section">
+            <div class="faq-item">
+                <p class="faq-question" onclick="toggleFAQ('faq1')">What are the essential vitamins for daily health?</p>
+                <p id="faq1" class="faq-answer">Essential vitamins include Vitamin A, B-complex, C, D, E, and K, each playing a role in bodily functions.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-question" onclick="toggleFAQ('faq2')">Can I get all vitamins from food?</p>
+                <p id="faq2" class="faq-answer">A balanced diet can provide most vitamins, but some people may need supplements for specific deficiencies.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-question" onclick="toggleFAQ('faq3')">How does Vitamin D help the body?</p>
+                <p id="faq3" class="faq-answer">Vitamin D helps with calcium absorption, bone health, immune support, and mood regulation.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-question" onclick="toggleFAQ('faq4')">What is the best source of Vitamin C?</p>
+                <p id="faq4" class="faq-answer">Citrus fruits, strawberries, bell peppers, and broccoli are excellent sources of Vitamin C.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-question" onclick="toggleFAQ('faq5')">Why is Vitamin K important?</p>
+                <p id="faq5" class="faq-answer">Vitamin K is crucial for blood clotting and bone metabolism.</p>
+            </div>
+        </div>
+</body>
+</html>

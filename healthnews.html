@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health News - BMI</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #121212;
+        }
+        
+        /* Background animation */
+        .background {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            background: url('https://www.shutterstock.com/image-illustration/abstract-worldwide-health-care-background-260nw-791338138.jpg') no-repeat center center/cover;
+            filter: blur(4px);
+            animation: moveBackground 3s linear infinite alternate;
+        }
+        
+        @keyframes moveBackground {
+            0% {
+                transform: scale(1.1) translateY(-10px);
+            }
+            100% {
+                transform: scale(1.1) translateY(10px);
+            }
+        }
+        
+        /* Container Styling */
+        .container {
+            position: relative;
+            max-width: 800px;
+            background: rgba(34, 31, 31, 0.95);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(255, 0, 0, 0.2);
+            border: 2px solid transparent;
+            transition: all 0.4s ease-in-out;
+            transform: translateY(0);
+        }
+
+        /* Hover effect for the container */
+        .container:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 10px 30px rgba(255, 0, 0, 0.5);
+            border-image: linear-gradient(45deg, #ff1b6b, #45caff) 1;
+        }
+        
+        h1 {
+            color: #ff4d4d;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* News Item Styling */
+        .news-item {
+            background: linear-gradient(135deg, #ff4d4d 0%, #ffcc00 100%);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 3px 8px rgba(255, 0, 0, 0.2);
+        }
+        
+        .news-item:hover {
+            transform: scale(1.07);
+            box-shadow: 0 8px 20px rgba(255, 0, 0, 0.4);
+        }
+        
+        .news-item a {
+            text-decoration: none;
+            font-weight: bold;
+            color: #ffffff;
+            transition: color 0.3s ease;
+        }
+
+        .news-item a:hover {
+            color: #121212;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="container">
+        <h1>Latest Health News on BMI</h1>
+        <div id="news-container"></div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const newsData = [
+                {
+                    title: "Global experts challenge BMI as sole obesity indicator",
+                    url: "https://apnews.com/article/obesity-bmi-weight-definition-lancet-f3aafc072a3e685036d32ce3d9c3adac"
+                },
+                {
+                    title: "University of Virginia experts discuss alternatives to BMI",
+                    url: "https://news.virginia.edu/content/uva-experts-go-beyond-bmi-measure-your-health"
+                },
+                {
+                    title: "Waist-to-hip ratio better than BMI for health risk assessment",
+                    url: "https://www.healio.com/news/gastroenterology/20250205/central-obesity-metrics-more-accurate-than-bmi-in-estimating-excess-weightrelated-crc"
+                },
+                {
+                    title: "UK insurer Vitality to offer weight-loss jabs to members with high BMI",
+                    url: "https://www.theguardian.com/society/2025/feb/12/uk-health-insurer-vitality-to-offer-members-discounted-anti-obesity-drugs"
+                }
+            ];
+        
+            const newsContainer = document.getElementById("news-container");
+        
+            newsData.forEach(news => {
+                const newsItem = document.createElement("div");
+                newsItem.classList.add("news-item");
+                
+                // Create an anchor element correctly
+                const link = document.createElement("a");
+                link.href = news.url;
+                link.target = "_blank";
+                link.textContent = news.title;
+                
+                // Append the link to the news item
+                newsItem.appendChild(link);
+                newsContainer.appendChild(newsItem);
+            });
+        });
+    </script>
+</body>
+</html>

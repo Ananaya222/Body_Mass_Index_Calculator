@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obesity Resource Center - WellnessDex</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f8f9fa;
+        }
+
+        .banner {
+            position: relative;
+            width: 100%;
+            height: 350px;
+            background: #ffe4b5;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 40px 80px;
+        }
+
+        .banner-text {
+            max-width: 40%;
+        }
+
+        .banner h1 {
+            font-size: 32px;
+            color: #d84315;
+            margin: 0;
+        }
+
+        .banner p {
+            font-size: 18px;
+            color: #555;
+            margin-top: 10px;
+        }
+
+        .banner img {
+            width: 45%;
+            max-height: 320px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .nav-tabs {
+            display: flex;
+            background: #ffffff;
+            padding: 10px 40px;
+            justify-content: center;
+            gap: 20px;
+            border-bottom: 2px solid #ddd;
+        }
+
+        .nav-tabs a {
+            text-decoration: none;
+            color: #d84315;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+
+        .nav-tabs a.active {
+            border-bottom: 3px solid #d84315;
+            padding-bottom: 6px;
+        }
+
+        .content {
+            padding: 40px;
+            text-align: center;
+            font-size: 18px;
+            color: #444;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 20px;
+            background: white;
+            margin: 20px auto;
+            max-width: 800px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="banner">
+        <div class="banner-text">
+            <h1>Obesity Resource Center</h1>
+            <p>Comprehensive information on obesity, its causes, risks, and management strategies.</p>
+        </div>
+        <img src="https://cdn.britannica.com/36/189336-050-8D1DAA2C/Obesity-body-fat-accumulation-conditions.jpg" alt="Obesity Awareness">
+    </div>
+
+    <div class="nav-tabs">
+        <a class="tab-link active" data-tab="overview">Overview</a>
+        <a class="tab-link" data-tab="causes">Causes</a>
+        <a class="tab-link" data-tab="symptoms">Symptoms</a>
+        <a class="tab-link" data-tab="risks">Health Risks</a>
+        <a class="tab-link" data-tab="treatment">Treatment</a>
+        <a class="tab-link" data-tab="prevention">Prevention</a>
+    </div>
+
+    <div class="content">
+        <div id="overview" class="tab-content active">
+            <h2>What is Obesity?</h2>
+            <p>Obesity is a medical condition where excess body fat accumulates, increasing health risks.</p>
+        </div>
+        <div id="causes" class="tab-content">
+            <h2>Causes of Obesity</h2>
+            <p>Common causes include poor diet, lack of physical activity, genetics, and medical conditions.</p>
+        </div>
+        <div id="symptoms" class="tab-content">
+            <h2>Symptoms</h2>
+            <p>Symptoms include excessive body fat, difficulty in physical activity, and increased BMI.</p>
+        </div>
+        <div id="risks" class="tab-content">
+            <h2>Health Risks of Obesity</h2>
+            <p>Obesity increases the risk of heart disease, diabetes, high blood pressure, and joint problems.</p>
+        </div>
+        <div id="treatment" class="tab-content">
+            <h2>Treatment Options</h2>
+            <p>Treatment includes lifestyle changes, diet plans, exercise, medication, and surgery in severe cases.</p>
+        </div>
+        <div id="prevention" class="tab-content">
+            <h2>Prevention Strategies</h2>
+            <p>Healthy eating, regular exercise, and lifestyle changes can prevent obesity.</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const tabLinks = document.querySelectorAll(".tab-link");
+            const tabContents = document.querySelectorAll(".tab-content");
+
+            tabLinks.forEach(tab => {
+                tab.addEventListener("click", function() {
+                    tabLinks.forEach(t => t.classList.remove("active"));
+                    tabContents.forEach(tc => tc.classList.remove("active"));
+
+                    this.classList.add("active");
+                    document.getElementById(this.getAttribute("data-tab")).classList.add("active");
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

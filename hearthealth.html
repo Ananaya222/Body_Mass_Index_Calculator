@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Health</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            text-align: center; 
+            padding: 20px; 
+            background-image: url('https://www.orangehealth.in/wp-content/uploads/2024/02/fb81787a9c.jpg'); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .container { max-width: 1000px; margin: auto; text-align: left; }
+        .content { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; }
+        
+        /* Image Hover Effect */
+        .content img { 
+            width: 45%; 
+            border-radius: 8px; 
+            align-self: flex-start; 
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .content img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 10px rgba(255, 0, 0, 0.6);
+        }
+
+        /* Text Hover Effect */
+        .text { 
+            flex: 1; 
+            text-align: left; 
+            align-self: flex-start; 
+            color: white; 
+            text-align: justify;
+            transition: color 0.3s ease-in-out;
+        }
+        /* Jumping Text Effect */
+.text:hover {
+    display: inline-block;
+    transform: scale(1.05);
+}
+/* Hover Effect for the Container */
+.container {
+    max-width: 1000px;
+    margin: auto;
+    text-align: left;
+    background: rgba(255, 255, 255, 0.1); 
+    padding: 20px;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Scale & Shadow Effect on Hover */
+.container:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 20px rgba(255, 0, 0, 0.5);
+}
+.container {
+    background: rgba(255, 0, 0, 0.2); /* Soft Red */
+    backdrop-filter: blur(5px);
+    border: 2px solid rgba(255, 0, 0, 0.5);
+}
+
+/* Jumping Text Effect */
+.text {
+    flex: 1;
+    text-align: justify;
+    color: white;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Apply Jumping Effect to All Text Inside the Container */
+.container:hover .text {
+    display: inline-block;
+    animation: jump 0.5s ease-in-out infinite alternate;
+}
+
+/* Keyframes for Jumping Effect */
+@keyframes jump {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
+
+
+/* Keyframes for Jumping Effect */
+@keyframes jump {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
+
+        /* Button Styling */
+        .button-container { 
+            display: flex; 
+            justify-content: space-between; 
+            gap: 20px; 
+            margin-top: 20px; 
+        }
+        button { 
+            background: linear-gradient(to right, #ff0000, #cc0000); 
+            color: white; 
+            padding: 15px 20px; 
+            border: none; 
+            cursor: pointer; 
+            flex: 1; 
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        button:hover {
+            background: linear-gradient(to right, #cc0000, #ff4d4d);
+            transform: scale(1.1);
+            box-shadow: 0 4px 10px rgba(255, 0, 0, 0.6);
+        }
+
+        /* Info Box */
+        .info-box { 
+            display: none; 
+            background: rgba(243, 243, 243, 0.9); 
+            padding: 20px; 
+            margin-top: 20px; 
+            border-radius: 8px; 
+            transition: opacity 0.3s ease-in-out;
+        }
+        .info-box.active { 
+            display: block; 
+            opacity: 1;
+        }
+        .container { max-width: 1000px; margin: auto; text-align: left; }
+        .content { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; }
+        .content img { width: 45%; border-radius: 8px; align-self: flex-start; }
+        .text { flex: 1; text-align: left; align-self: flex-start;color: white;text-align: justify; }
+        .button-container { display: flex; justify-content: space-between; gap: 50px; margin-top: 20px; }
+        button { background-color: red; color: white; padding: 15px 20px; border: none; cursor: pointer; flex: 1; }
+        .info-box { display: none; background: #f3f3f3; padding: 20px; margin-top: 20px; border-radius: 8px; }
+        .info-box.active { display: block; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 style="color: red; text-align: center;">Heart Health</h1>
+        <div class="content">
+            <div class="text">
+                <p>Heart health is crucial for overall well-being, as the heart plays a vital role in pumping blood and supplying oxygen and nutrients to the body. Maintaining a healthy heart involves a balanced diet rich in fruits, vegetables, whole grains, and lean proteins while limiting saturated fats, processed foods, and excessive salt. Regular physical activity, such as walking, jogging, or strength training, helps improve cardiovascular fitness and reduce the risk of heart disease.Managing stress, avoiding smoking, limiting alcohol intake, and maintaining a healthy weight are also essential for heart health. Additionally, regular check-ups to monitor blood pressure, cholesterol levels, and blood sugar can help detect potential issues early and prevent serious heart conditions like hypertension, heart attacks, and strokes. Prioritizing a heart-healthy lifestyle significantly enhances longevity and quality of life.</p>
+            </div>
+            <img src="https://ssbhealthcare.com/wp-content/uploads/2021/09/healthy-heart.jpg" alt="Heart Health">
+        </div>
+        
+        <div class="button-container">
+            <button onclick="showInfo('cad')">Coronary Artery Disease</button>
+            <button onclick="showInfo('heart-attack')">Heart Attack</button>
+            <button onclick="showInfo('arrhythmia')">Arrhythmia</button>
+        </div>
+        
+        <div id="cad" class="info-box">
+            <h2>Coronary Artery Disease</h2>
+            <p>Coronary artery disease (CAD) is a condition where the blood vessels that supply the heart muscle become narrowed or blocked.</p>
+            <h3>Causes:</h3>
+            <ul>
+                <li>High blood pressure</li>
+                <li>High cholesterol</li>
+                <li>Smoking</li>
+                <li>Diabetes</li>
+                <li>Obesity</li>
+            </ul>
+            <h3>Prevention:</h3>
+            <ul>
+                <li>Eat a healthy diet</li>
+                <li>Exercise regularly</li>
+                <li>Maintain a healthy weight</li>
+                <li>Avoid smoking</li>
+                <li>Control blood pressure and cholesterol levels</li>
+            </ul>
+        </div>
+        
+        <div id="heart-attack" class="info-box">
+            <h2>Heart Attack</h2>
+            <p>A heart attack occurs when blood flow to the heart is blocked, often due to a blood clot.</p>
+            <h3>Causes:</h3>
+            <ul>
+                <li>Blocked arteries</li>
+                <li>Smoking</li>
+                <li>High cholesterol</li>
+                <li>Stress</li>
+                <li>Diabetes</li>
+            </ul>
+            <h3>Prevention:</h3>
+            <ul>
+                <li>Healthy diet</li>
+                <li>Regular exercise</li>
+                <li>Avoid smoking</li>
+                <li>Manage stress</li>
+                <li>Control diabetes and cholesterol levels</li>
+            </ul>
+        </div>
+        
+        <div id="arrhythmia" class="info-box">
+            <h2>Arrhythmia</h2>
+            <p>Arrhythmia is an irregular heartbeat that occurs when the electrical signals to the heart are not functioning properly.</p>
+            <h3>Causes:</h3>
+            <ul>
+                <li>High blood pressure</li>
+                <li>Heart disease</li>
+                <li>Electrolyte imbalance</li>
+                <li>Stress</li>
+                <li>Smoking</li>
+            </ul>
+            <h3>Prevention:</h3>
+            <ul>
+                <li>Reduce stress</li>
+                <li>Limit caffeine and alcohol</li>
+                <li>Exercise regularly</li>
+                <li>Monitor heart rate</li>
+                <li>Avoid smoking</li>
+            </ul>
+        </div>
+    </div>
+    
+    <script>
+        function showInfo(id) {
+            document.querySelectorAll('.info-box').forEach(box => box.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+        }
+    </script>
+</body>
+</html>

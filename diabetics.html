@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #77a4d4;
+            justify-content: center;
+        }
+        .container {
+            width: 80%;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .section {
+            width: 100%;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            background: #e9ecef;
+        }
+        .image-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .content-container {
+            flex: 2;
+            padding: 20px;
+        }
+        .button-container {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .button-container button {
+            padding: 10px 15px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .button-container button:hover {
+            background-color: #0056b3;
+        }
+        .hidden {
+            display: none;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        p {
+            line-height: 1.6;
+        }
+        .image-container img {
+            width: 300px; /* Adjust width as needed */
+            height: auto; /* Keeps the aspect ratio */
+            border-radius: 8px; /* Optional: Rounded corners */
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            width: 80%;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-wrap: wrap;
+            transition: transform 0.3s;
+        }
+        .container:hover {
+            transform: scale(1.02);
+        }
+        .section {
+            width: 100%;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            background: #d1e7dd;
+            transition: background-color 0.3s;
+        }
+        .section:hover {
+            background-color: #badbcc;
+        }
+        .image-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+        .image-container img:hover {
+            transform: scale(1.1);
+        }
+        .content-container {
+            flex: 2;
+            padding: 20px;
+        }
+        .button-container {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .button-container button {
+            padding: 10px 15px;
+            border: none;
+            background-color: #28a745;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .button-container button:hover {
+            background-color: #218838;
+            transform: scale(1.1);
+        }
+        .hidden {
+            display: none;
+        }
+        h1, h2 {
+            color: #155724;
+            font-family: 'Montserrat', sans-serif;
+        }
+        p, li {
+            line-height: 1.6;
+            font-size: 1.1em;
+        }
+    </style>
+    
+    <script>
+        function showInfo(id, imgSrc) {
+            document.querySelectorAll('.info').forEach(section => section.classList.add('hidden'));
+            document.getElementById(id).classList.remove('hidden');
+            document.getElementById('info-image').src = imgSrc;
+            document.getElementById('info-image-container').classList.remove('hidden');
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="image-container">
+            <img src="https://twobrothersindiashop.com/cdn/shop/articles/Untitled_design_2_1.png?v=1684843645&width=1500" alt="Diabetes Awareness">
+        </div>
+        <div class="content-container">
+            <h1>What is Diabetes?</h1>
+            <p>Diabetes is a chronic health condition that affects how your body turns food into energy. It occurs when your blood glucose (blood sugar) levels are too high due to insufficient insulin production or improper insulin use.</p>
+        </div>
+        
+        <div class="section">
+            <h2>Types of Diabetes</h2>
+            <div class="button-container">
+                <button onclick="showInfo('type1', 'C:\Users\JENITA\Downloads\type-1-diabetes-medical-vector-illustration-with-english-description-T00Y38.jpg')">Type 1 Diabetes</button>
+                <button onclick="showInfo('type2', 'type2.jpg')">Type 2 Diabetes</button>
+                <button onclick="showInfo('gestational', 'gestational.jpg')">Gestational Diabetes</button>
+            </div>
+            <div id="type1" class="info hidden">
+                <div class="image-container">
+                    <img src="https://www.corning.com/content/dam/corning/media/worldwide/cls/images/cls%20Applications/cls-a-novel-approach-to-type-1-diabetes-treatment-ls.jpg"alt="Type 1 Diabetes">
+                </div>
+                <p>Type 1 diabetes is an autoimmune disease in which the immune system mistakenly attacks and destroys the insulin-producing beta cells in the pancreas.
+                As a result, the body produces little or no insulin, leading to high blood sugar levels.</p>  
+                <p><strong>Causes:</strong></p>
+                <ul>
+                    <li>Genetic predisposition</li>
+                    <li>Autoimmune response</li>
+                    <li>Environmental triggers (e.g., viral infections)</li>
+                </ul>
+                <p><strong>Symptoms:</strong></p>
+                <ul>
+                    <li>Frequent urination</li>
+                    <li>Extreme thirst and hunger</li>
+                    <li>Unexplained weight loss</li>
+                    <li>Fatigue and weakness</li>
+                    <li>Blurred vision</li>
+                </ul>
+                <p><strong>Treatment:</strong></p>
+                <ul>
+                    <li>Daily insulin injections or an insulin pump</li>
+                    <li>Blood sugar monitoring</li>
+                    <li>Healthy diet and exercise</li>
+                </ul>
+                <p><strong>Complications:</strong></p>
+                <ul>
+                    <li>Heart disease</li>
+                    <li>Kidney damage</li>
+                    <li>Nerve damage</li>
+                    <li>Vision problems</li>
+                </ul>
+            </div>
+            <div id="type2" class="info hidden">
+                <div class="image-container">
+                    <img src="https://www.kauverymeds.com/uploads/blog/main/type_2_diabetes_mellitus_CAT_1672210056.jpg" alt="Type 1 Diabetes">
+                </div>
+                <p>A condition where the body does not use insulin properly, leading to high blood sugar levels. This type is often related to lifestyle factors.Type 2 diabetes is a chronic condition in which the body becomes resistant to insulin or doesn't produce enough insulin to maintain normal blood sugar levels</p>
+                <p><strong>Causes:</strong></p>
+                <ul>
+                    <li>Genetic predisposition</li>
+                    <li>Poor diet and unhealthy lifestyle</li>
+                    <li>Obesity and physical inactivity</li>
+                    <li>Insulin resistance</li>
+                </ul>
+                <p><strong>Symptoms:</strong></p>
+                <ul>
+                    <li>Increased thirst and frequent urination</li>
+                    <li>Unexplained weight loss</li>
+                    <li>Fatigue and tiredness</li>
+                    <li>Blurred vision</li>
+                    <li>Slow-healing wounds</li>
+                </ul>
+                <p><strong>Treatment:</strong></p>
+                <ul>
+                    <li>Healthy diet and exercise</li>
+                    <li>Oral medications to manage blood sugar</li>
+                    <li>Insulin therapy if necessary</li>
+                    <li>Regular blood sugar monitoring</li>
+                </ul>
+                <p><strong>Complications:</strong></p>
+                <ul>
+                    <li>Heart disease and stroke</li>
+                    <li>Kidney disease</li>
+                    <li>Nerve damage</li>
+                    <li>Eye problems and vision loss</li>
+                </ul>
+            </div>
+            <div id="gestational" class="info hidden">
+                <div class="image-container">
+                    <img src="https://www.shalby.org/wp-content/uploads/2018/02/Gestational-Diabetes.jpg"alt="Type 1 Diabetes">
+                </div>
+                <p> Develops during pregnancy and usually disappears after childbirth, but it increases the risk of developing type 2 diabetes later.
+                Gestational diabetes is a type of diabetes that occurs during pregnancy and usually disappears after childbirth.It increases the risk of developing type 2 diabetes later in life.</p>
+                <p><strong>Causes:</strong></p>
+                <ul>
+                    <li>Hormonal changes during pregnancy</li>
+                    <li>Genetic predisposition</li>
+                    <li>Excess weight before pregnancy</li>
+                </ul>
+                <p><strong>Symptoms:</strong></p>
+                <ul>
+                    <li>Increased thirst</li>
+                    <li>Frequent urination</li>
+                    <li>Fatigue</li>
+                    <li>Blurred vision</li>
+                </ul>
+                <p><strong>Treatment:</strong></p>
+                <ul>
+                    <li>Healthy diet and meal planning</li>
+                    <li>Regular physical activity</li>
+                    <li>Monitoring blood sugar levels</li>
+                    <li>Insulin therapy if necessary</li>
+                </ul>
+                <p><strong>Complications:</strong></p>
+                <ul>
+                    <li>Increased risk of cesarean delivery</li>
+                    <li>High birth weight in newborns</li>
+                    <li>Low blood sugar in babies</li>
+                    <li>Higher chance of developing type 2 diabetes</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Causes of Diabetes</h2>
+            <ul>
+                <li>Genetic factors</li>
+                <li>Poor diet and lack of exercise</li>
+                <li>Obesity</li>
+                <li>Hormonal imbalances</li>
+                <li>Insulin resistance</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>Prevention Methods</h2>
+            <ul>
+                <li>Maintain a healthy diet rich in whole foods</li>
+                <li>Engage in regular physical activity</li>
+                <li>Monitor blood sugar levels regularly</li>
+                <li>Maintain a healthy weight</li>
+                <li>Avoid excessive sugar and processed food consumption</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WellnessDex - BMI Calculator</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://img.etimg.com/thumb/width-1600,height-900,imgsize-1154489,resizemode-75,msid-83395326/magazines/panache/health/what-is-body-mass-index-why-is-bmi-used-to-measure-if-a-person-is-overweight-or-obese.jpg') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        /* Background Overlay */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: -1;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: #002D62;
+            width: 100%;
+            padding: 15px 20px;
+            position: fixed;
+            top: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+       /* Logo Styling */
+    .logo-text {
+        text-decoration: none; /* Remove underline */
+        display: flex;
+        align-items: center;
+    }
+
+    .wellness {
+        font-family: 'Courier New', Courier, monospace; /* Font style for "Wellness" */
+        font-size: 36px;
+        font-weight: bold;
+        color: #FFD700; /* Gold color */
+        letter-spacing: 2px;
+        text-transform: capitalize;
+        margin-right: 5px; /* Space between "Wellness" and "Dex" */
+    }
+
+    .dex {
+        font-family: 'Courier New', Courier, monospace; /* Font style for "Dex" */
+        font-size: 36px;
+        font-weight: bold;
+        color: #56c1e1; /* Blue color for "Dex" */
+        letter-spacing: 2px;
+        text-transform: capitalize;
+    }
+
+    .logo-text:hover .wellness {
+        color: #f0a500; /* Slightly darker gold on hover */
+    }
+
+    .logo-text:hover .dex {
+        color: #4fa3d1; /* Slightly darker blue on hover */
+    }
+        
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            margin: 0 12px;
+            font-weight: bold;
+            transition: 0.3s;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Dropdown Styling */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            display: block;
+            text-align: left;
+            transition: 0.3s;
+        }
+
+        .dropdown-content a:hover {
+            background: #f1f1f1;
+        }
+
+        /* Show dropdown on hover */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Hero Section */
+        .hero {
+            max-width: 700px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 40px;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+            margin-top: 80px;
+        }
+
+        .hero h1 {
+            color: #FFD700;
+            font-size: 34px;
+        }
+        /* Hover effect for the hero section without changing the background color */
+.hero:hover {
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15); /* Darker shadow for a "lifted" effect */
+    transform: translateY(10px); /* Slightly lift the box */
+}
+/* Hover effect for the call-to-action button */
+.hero .cta-btn:hover {
+    background-color: #56c1e1; /* Slightly darker blue */
+    transform: translateY(-3px); /* Light lift effect */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Add a soft shadow on hover */
+}
+
+/* Styling for the hero section text */
+.hero h1, .hero p {
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition for color and transform */
+}
+
+/* Hover effect for the text */
+.hero:hover h1, .hero:hover p {
+    color: #2d2d2d; /* Darker text color for contrast */
+    transform: translateY(-3px); /* Slight upward movement for text */
+}
+
+        .hero p {
+            color: white;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        
+
+        /* CTA Button */
+        .cta-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 25px;
+            background-color: #28a745;
+            color: white;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .cta-btn:hover {
+            background-color: #218838;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+            }
+
+            .nav-links a {
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+<div class="navbar">
+    <div class="logo">
+        <a href="index.html" class="logo-text">
+            <span class="wellness">Wellness</span><span class="dex">Dex</span>
+        </a>
+    </div>
+        <div class="nav-links">
+            <div class="dropdown">
+                <a href="#">Conditions ▼</a>
+                <div class="dropdown-content">
+                    <a href="diabetics.html">Diabetes</a>
+                    <a href="obesity.html">Obesity</a>
+                    <a href="hearthealth.html">Heart Health</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#">Drugs & Supplements ▼</a>
+                <div class="dropdown-content">
+                    <a href="vitamins.html">Vitamins</a>
+                    <a href="weightloss.html">Weight Loss</a>
+                    <a href="medication.html">Medication Guide</a>
+                    <a href="healthnews.html">Health News</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#">Well-Being ▼</a>
+                <div class="dropdown-content">
+                    <a href="fitness.html">Fitness</a>
+                    <a href="nutrition.html">Nutrition</a>
+                    <a href="mentalhealth.html">Mental Health</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Body-Mass Index</h1>
+        <p>Wellness Dex estimates how healthy your Weight is based on your Height. 
+           There’s no "perfect weight" for everyone, but Wellness Dex helps to understand weight-related health risks.</p>
+        <a href="index1.html" class="cta-btn">Calculate Your BMI</a>
+    </div>
+
+</body>
+</html>
